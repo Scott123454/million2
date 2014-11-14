@@ -40,6 +40,13 @@ def number_filter(number)
   end
 end
 
+
+def format_tens(number)
+    closest = find_closest_exceptional(number)
+    difference = number - closest
+    "#{EXCEPTIONAL_NUMBERS[closest]} #{EXCEPTIONAL_NUMBERS[difference]}".strip
+end
+
 def returns_number_in_words(number)
   if number == 1000000 
     return "one million" 
