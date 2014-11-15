@@ -31,21 +31,11 @@ describe 'Write one to a million in words' do
   end
 
   context 'one to ninety nine number calculator' do
-    xit 'finds the factor of ten' do
-      expect(find_factor_of_ten(10)).to eq 1
-    end
-    
-    xit 'finds that 100 = 10 x 10' do
-      expect(find_factor_of_ten(100)).to eq 10
-    end
-
-    xit 'finds that 91/10 = 9' do
-      expect(find_factor_of_ten(91)).to eq 9
-    end
 
     it 'finds that the highest exceptional number less than 21 is 20' do
       expect(find_closest_exceptional(21)).to eq 20
     end
+    
   end
 
   context 'compound number calculator' do
@@ -86,12 +76,12 @@ describe 'Write one to a million in words' do
       expect(format_thousands(999999)).to eq "nine hundred and ninety nine thousand, nine hundred and ninety nine"
     end
 
-  it 'returns_number_in_words(1000000) to return "one million"' do
-  expect(returns_number_in_words(1000000)).to eq "one million"
+    it 'returns_number_in_words(1000000) to return "one million"' do
+      expect(returns_number_in_words(1000000)).to eq "one million"
     end
 
-  it 'returns_number_in_words(500000)).to eq "five hundred thousand"' do
-    expect(returns_number_in_words(500000)).to eq 'five hundred thousand'
+    it 'returns_number_in_words(500000)).to eq "five hundred thousand"' do
+      expect(returns_number_in_words(500000)).to eq 'five hundred thousand'
     end
 
   end
