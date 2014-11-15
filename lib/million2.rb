@@ -32,6 +32,19 @@ def find_closest_exceptional(number)
       number >= fig}[0]
 end
 
+def format_tens(number)
+    closest = find_closest_exceptional(number)
+    difference = number - closest
+    "#{EXCEPTIONAL_NUMBERS[closest]} #{EXCEPTIONAL_NUMBERS[difference]}".strip
+end
+
+def format_hundreds(number)
+  hundreds = number/100
+  tens = number - (hundreds * 100)
+  return "#{EXCEPTIONAL_NUMBERS[hundreds]} hundred" if tens == 0
+  "#{EXCEPTIONAL_NUMBERS[hundreds]} hundred and #{format_tens(tens)}"
+end
+
 def number_filter(number)
   if (number >= 100) && (number <= 999)
     return format_hundreds(number)
@@ -39,13 +52,14 @@ def number_filter(number)
     return format_tens(number)
   end
 end
-
-
-def format_tens(number)
-    closest = find_closest_exceptional(number)
-    difference = number - closest
-    "#{EXCEPTIONAL_NUMBERS[closest]} #{EXCEPTIONAL_NUMBERS[difference]}".strip
+  
+def format_thousands(number)
+  thousands = number/1000
+  difference = number - (thousands * 1000)
+  return "#{number_filter(thousands)} thousand" if difference == 0
+  "#{number_filter(thousands)} thousand, #{number_filter(difference)}"
 end
+
 
 def returns_number_in_words(number)
   if number == 1000000 
@@ -56,4 +70,4 @@ def returns_number_in_words(number)
   end
 end
 
-puts returns_number_in_words(1)
+(1..1000000).each {|num| puts returns_number_in_words(num) }
